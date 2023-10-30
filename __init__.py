@@ -38,3 +38,7 @@ total_energies = reverse_energies + forward_energies
 
 # Create new relative energy list for path (using first point as reference)
 relative_energies = get_relative_energies(total_energies)
+
+# Print out relative energies
+for energy in relative_energies:
+    print(energy)
