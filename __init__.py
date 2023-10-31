@@ -1,6 +1,6 @@
-# Prompt user for required information --> name of reverse and forward irc log files
 ircr_file = input("Enter name of Reverse IRC log file: ")
 ircf_file = input("Enter name of Forward IRC log file: ")
+correction = float(input("Enter optional correction to relative energies:  "))
 
 
 # Function to get list of energies from IRC file
@@ -22,7 +22,7 @@ def get_energies(filename, is_reverse=False):
 def get_relative_energies(energies):
     relative_energies = []
     for energy in energies:
-        relative_energies.append((energy - energies[0]) * 627.51)
+        relative_energies.append(((energy - energies[0]) * 627.51) + correction)
 
     return relative_energies
 
