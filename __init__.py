@@ -1,6 +1,20 @@
+import sys
+
+# Get user to input names of IRC files
 ircr_file = input("Enter name of Reverse IRC log file: ")
 ircf_file = input("Enter name of Forward IRC log file: ")
-correction = float(input("Enter optional correction to relative energies:  "))
+
+# Catch cases of user either not inputting a correction or inputting something other than a number
+try:
+    correction = float(input("Enter optional correction to relative energies:  "))
+except ValueError:
+    correction = 0.0
+    print("Correction has been set to 0")
+
+# Check that IRC files in both directions have actually been supplied
+if ircr_file == "" or ircf_file == "":
+    print("You must supply both a reverse and forward IRC log file!")
+    sys.exit()
 
 
 # Function to get list of energies from IRC file
